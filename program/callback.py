@@ -39,7 +39,7 @@ async def cbstart(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "🪐︙جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
                         "📣 قناة السورس", url=f"https://t.me/{UPDATES_CHANNEL}"
@@ -69,9 +69,9 @@ async def cbguides(_, query: CallbackQuery):
 4.) **بعد لما تضيفه اكتب شغل لتشغيل اغاني او اكتب فيديو لتشغيل فيديو او لايغ .**
 5.) **كل فتره اعمل reload علشان لو في خطا يتصلح.**
 
-📌 **If the userbot not joined to video chat, make sure if the video chat already turned on, or type /userbotleave then type /userbotjoin again.**
+📌 **لو واجهت مشكله مع الحساب المساعد اكتب 『اخرج』 وبعدين  اكتب 『انضم』**
 
-💡 **If you have a follow-up questions about this bot, you can tell it on my support chat here: @{GROUP_SUPPORT}**
+💡 **لو محتاج ااي مساعده تواصل مع المطور م شات الدعم: @{GROUP_SUPPORT}**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
@@ -84,9 +84,9 @@ async def cbguides(_, query: CallbackQuery):
 async def cbcmds(_, query: CallbackQuery):
     await query.answer("commands menu")
     await query.edit_message_text(
-        f"""✨ **Hello [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**
+        f"""✨ **مرحبا عزيزي [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**
 
-» **press the button below to read the explanation and see the list of available commands !**
+» **اتبع الازرار التاليه للوصول الي اوامر استخدام البوت !**
 
 ⚡ __Powered by {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
@@ -95,7 +95,7 @@ async def cbcmds(_, query: CallbackQuery):
                     InlineKeyboardButton("👷🏻 اوامر ادمن الجروب", callback_data="cbadmin"),
                     InlineKeyboardButton("🧙🏻 اوامر المطور ", callback_data="cbsudo"),
                 ],[
-                    InlineKeyboardButton("📚 الاوامر", callback_data="cbbasic")
+                    InlineKeyboardButton("📚 الاوامر الاساسيه", callback_data="cbbasic")
                 ],[
                     InlineKeyboardButton("🔙 رجوع", callback_data="cbstart")
                 ],
@@ -110,23 +110,18 @@ async def cbbasic(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 here is the basic commands:
 
-» شغل (song name/link) - play music on video chat
-» فيديو (video name/link) - play video on video chat
-» لايف - play live video from yt live/m3u8
-» /lyric (query) - scrap the song lyric
-» /search (query) - search a youtube video link
-» /song (query) - download song from youtube
-» /lyric (query) - scrap the song lyric
-» /search (query) - search a youtube video link
-
-» /ping - show the bot ping status
-» /speedtest - run the bot server speedtest
-» /uptime - show the bot uptime status
-» /alive - show the bot alive info (in group)
+» شغل - (اسم الاغنيه او اللينك) لتشغيل الاغاني ف المحادثات
+» فيديو - (اسم الفديو او اللينك) - لتشغيل الفديو في المحادثات الصوتيه
+» لايف - لتشغيل البث المباشر
+» كلمات - العثور علي كلمات الاغنيه
+» فيد - (اسم او لينك) لتحميل فيديو
+» اغنيه (اسم او لينك) - لتحميل اغنيه 
+» بحث - (لينك) - للبحث ف اليوتيوب
+» بينج - اظهار حاله البوت
 
 ⚡️ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton("🔙 Go Back", callback_data="cbcmds")]]
+            [[InlineKeyboardButton("🔙 رجوع", callback_data="cbcmds")]]
         ),
     )
 
@@ -137,16 +132,16 @@ async def cbadmin(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 here is the admin commands:
 
-» وقف - pause the stream
-» كمل - resume the stream
-» تخطي - switch to next stream
-»  ايقاف - stop the streaming
-» /كتم - mute the userbot on voice chat
-» الغاء كتم - unmute the userbot on voice chat
-» الصوت `1-200` - adjust the volume of music (userbot must be admin)
-» ريلود - reload bot and refresh the admin data
-» انضم - invite the userbot to join group
-» اخرج - order userbot to leave from group
+» وقف - ايقاف التشغيل مؤقتا
+» كمل - استئناف التشغيل 
+» تخطي - تشغيل الاغنيه التاليه
+»  ايقاف - ايقاف تشغيل الموسيقى
+» كتم - كتم البوت في الدردشه الصوتيه
+» الغاء كتم - الغاء كتم البوت في الدردشه الصوتيه
+» الصوت - `1-200` - ضبط مستوي الصوت
+» ريلود - اعاده تشغيل البوت وتحديث قائمه الادمنيه
+» انضم - انضمام الحساب المساعد إلي مجموعتك
+» اخرج - خروج الحساب المساعد من المجموعه
 
 ⚡️ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(
@@ -160,12 +155,12 @@ async def cbsudo(_, query: CallbackQuery):
     await query.edit_message_text(
         f"""🏮 here is the sudo commands:
 
-» /rmw - clean all raw files
-» /rmd - clean all downloaded files
-» /sysinfo - show the system information
-» /update - update your bot to latest version
-» /restart - restart your bot
-» /leaveall - order userbot to leave from all group
+» /rmw - تنظيف الملفات
+» /rmd - حذف جميع الملفات المحمله 
+» /sysinfo - إظهار معلومات النظام
+» /update - تحديث بوتك الي اخر اصدار
+» /restart - عمل ريستارت للبوت
+» /leaveall - عمل ريستارت للبوت
 
 ⚡ __Powered by {BOT_NAME} AI__""",
         reply_markup=InlineKeyboardMarkup(

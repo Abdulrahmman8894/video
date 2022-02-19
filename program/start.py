@@ -49,11 +49,11 @@ async def _human_time_duration(seconds):
 
 
 @Client.on_message(
-    command(["تشغيل", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
+    command(["الاوامر", f"start@{BOT_USERNAME}"]) & filters.private & ~filters.edited
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Welcome {message.from_user.mention()} !**\n
+        f"""✨ **مرحبا بك عزيزي {message.from_user.mention()} !**\n
 💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **يتيح لك تشغيل الموسيقى والفيديو في مجموعات من خلال محادثات الفيديو الجديدة في Telegram!**
 
 💡 **لمعرفة جميع اوامر البوت اضغط علي » 📚 زرار الاوامر!**
@@ -75,15 +75,15 @@ async def start_(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "🪐︙جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 القناة", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "💻︙قناه السورس", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "مبرمج السورس 🇪🇬", url="https://t.me/Q_X_I_T"
+                        "🗽︙غـــــامـــبـول", url="https://t.me/Q_X_I_T"
                     )
                 ],
             ]
@@ -106,7 +106,7 @@ async def alive(c: Client, message: Message):
             [
                 InlineKeyboardButton("✨ Group", url=f"https://t.me/{GROUP_SUPPORT}"),
                 InlineKeyboardButton(
-                    "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    "💻︙قناه السورس", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -122,7 +122,40 @@ async def alive(c: Client, message: Message):
     )
 
 
-@Client.on_message(command(["بنك", f"ping@{BOT_USERNAME}"]) & ~filters.edited)
+@Client.on_message(
+    command(["الاوامر", f"help@{BOT_USERNAME}"]) & filters.group & ~filters.edited
+)
+async def alive(c: Client, message: Message):
+    chat_id = message.chat.id
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+
+    keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("👷🏻 اوامر ادمن الجروب", callback_data="cbadmin"),
+                    InlineKeyboardButton("🧙🏻 اوامر المطور ", callback_data="cbsudo"),
+                ],[
+                    InlineKeyboardButton("📚 الاوامر", callback_data="cbbasic")
+                ],[
+                    InlineKeyboardButton("🗑 اغلاق", callback_data="cls")
+                ),
+            ]
+        ]
+    )
+
+    alive = f"✨اليك اوامر التحكم بالاغاني اتبع الازرار"
+
+    await c.send_photo(
+        chat_id,
+        photo=f"https://telegra.ph/file/6a91aea34abd0cfe22df9.jpg",
+        caption=alive,
+        reply_markup=keyboard,
+    )
+    
+    
+@Client.on_message(command(["بنج", f"ping@{BOT_USERNAME}","السرعه"]) & ~filters.edited)
 async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("pinging...")
@@ -136,9 +169,9 @@ async def get_uptime(client: Client, message: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
-        "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        "🤖 وقت تشغيل البوت:\n"
+        f"• **الحاله:** `{uptime}`\n"
+        f"• *وقت التشغيل:** `{START_TIME_ISO}`"
     )
 
 
@@ -155,11 +188,14 @@ async def new_chat(c: Client, m: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("📣 قناة", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                            InlineKeyboardButton("💭 الدعم", url=f"https://t.me/{GROUP_SUPPORT}")
+                            InlineKeyboardButton("💻︙قناه السورس", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                            InlineKeyboardButton("🪐︙جروب الدعم", url=f"https://t.me/{GROUP_SUPPORT}")
                         ],
                         [
                             InlineKeyboardButton("👤 حساب المساعد", url=f"https://t.me/{ass_uname}")
+                        ],
+                        [
+                            InlineKeyboardButton("🪐︙مطور السورس", url=f"https://t.me/{ass_uname}")
                         ]
                     ]
                 )
