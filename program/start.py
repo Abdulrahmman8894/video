@@ -139,8 +139,7 @@ async def alive(c: Client, message: Message):
                 ],[
                     InlineKeyboardButton("📚 الاوامر", callback_data="cbbasic")
                 ],[
-                    InlineKeyboardButton("🗑 اغلاق", callback_data="cls")
-                ),
+                    InlineKeyboardButton("🗑 اغلاق", callback_data="cls")),
             ]
         ]
     )
