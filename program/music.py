@@ -246,11 +246,11 @@ async def play(c: Client, m: Message):
                         await m.reply_photo(
                             photo=image,
                             reply_markup=InlineKeyboardMarkup(buttons),
-                            caption=f"💡 **تـم اضـافـه الاغــنيه الي القـائـمه »** `{pos}`\n\n🗂 **الاســم:** [{songname}]({url}) | `music`\n**⏱ الوقـــت:** `{duration}`\n🧸 **مـطـلوب بــواســطـه:** {requester}",
+                            caption=f"💡 **تـم اضـافـه الاضافه الي القـائـمه »** `{pos}`\n\n🗂 **الاســم:** [{songname}]({url}) | `music`\n**⏱ الوقـــت:** `{duration}`\n🧸 **مـطـلوب بــواســطـه:** {requester}",
                         )
                     else:
                         try:
-                            await suhu.edit("🔄 **ويـــت يـ حتـــه 🎸...**")
+                            await suhu.edit("🔄 ** ويـــت  🎸...**")
                             await call_py.join_group_call(
                                 chat_id,
                                 AudioPiped(
