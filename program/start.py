@@ -54,7 +54,7 @@ async def _human_time_duration(seconds):
 async def start_(client: Client, message: Message):
     await message.reply_text(
         f"""✨ **مرحبا بك عزيزي {message.from_user.mention()} !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **يتيح لك تشغيل الموسيقى والفيديو في مجموعات من خلال محادثات الفيديو الجديدة في Telegram!**
+💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **يتيح لك تشغيل القران والفيديو في مجموعات و القنوات من خلال محادثات الفيديو الجديدة في Telegram!**
 
 💡 **لمعرفة جميع اوامر البوت اضغط علي » 📚 زرار الاوامر!**
 
@@ -83,7 +83,7 @@ async def start_(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🗽︙غـــــامـــبـول", url="https://t.me/Q_X_I_T"
+                        "🗽︙𝙼𝚁_𝚇_𝙽", url="https://t.me/MR_X_N"
                     )
                 ],
             ]
