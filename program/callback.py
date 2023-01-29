@@ -19,7 +19,7 @@ async def cbstart(_, query: CallbackQuery):
     await query.answer("home start")
     await query.edit_message_text(
         f"""✨ **مرحبا [{query.message.chat.first_name}](tg://user?id={query.message.chat.id}) !**\n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) يتيح لك تشغيل الموسيقى والفيديو في مجموعات من خلال محادثات الفيديو الجديدة في Telegram!**
+💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) يتيح لك تشغيل القرآن والفيديو في مجموعات من خلال محادثات الفيديو الجديدة في Telegram!**
 
 💡 **لمعرفة جميع اوامر البوت اضغط علي » 📚 زرار الاوامر!**
 
@@ -47,7 +47,7 @@ async def cbstart(_, query: CallbackQuery):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 مبرمج السورس", url="https://t.me/Q_X_I_T"
+                        "🌐 مبرمج السورس", url="https://t.me/QطMR_X_N"
                     )
                 ],
             ]
